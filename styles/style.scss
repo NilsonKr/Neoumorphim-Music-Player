@@ -11,6 +11,8 @@ $light-color: #c1cad8;
   height: 60px;
   padding: 10px;
   border-radius: 50%;
+  box-shadow:  5px 5px 3px #bbc8dd,
+  -5px -5px 3px #f9ffff;
 }
 
 *{
@@ -39,9 +41,10 @@ body{
   letter-spacing: 1px;
 }
 .cards{
-  padding:0 10px ;
+  padding:10px ;
 }
 .wrapper{
+  padding: 20px;
   display: flex;
   max-width: 320px;
   overflow-x: scroll;
@@ -59,9 +62,10 @@ body{
   height: 350px;
   min-width: 250px;
   min-height: 250px;
-  margin: 0  5px ;
+  margin: 0  10px ;
   border-radius: 10px;
-  border: 1px solid black;
+  box-shadow:  5px 5px 4px #bbc8dd,
+  -5px -5px 4px #f9ffff;
 }
 
 .card img{
@@ -96,6 +100,9 @@ body{
       height: 10px;
       background-color: $light-color;
       border-radius: 10px;
+      box-shadow: inset 2px 2px 8px #d1dff1,
+      inset -5px -5px 10px  #ffffff;
+
         .progress{
           position: absolute;
           border-radius: 10px; 
@@ -104,16 +111,27 @@ body{
           background-color: $second-color;
         }
 
-        &::after{
-          content: '';
+        .thumb{
           position: absolute;
           bottom: 50%;
           left: 30%;
           transform: translate(-50%, 50%);
           width: 25px;
           height: 25px;
-          background-color: $second-color;
+          background-color: $primary-color;
           border-radius: 50%;
+          box-shadow: 2px 2px 7px  #c7d4e9;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+            .point{
+              width: 35%;
+              height: 35%;
+              border-radius: 50%;
+              background-color: $second-color;
+            }
+
         }
     }
     .minutes{
@@ -145,6 +163,8 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow:  5px 5px 3px #cad8ef,
+  -5px -5px 3px #f9ffff;
 
     img{
       width: 50%;
