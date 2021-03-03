@@ -5,9 +5,13 @@ import MusicPlayer from './musicPlayer.js';
 // const backBtn = document.querySelector('#back')
 const maxTime = document.querySelector('#maxTime')
 const currentTime = document.querySelector('#currentTime')
+const barContainer = document.querySelector('#barContainer')
+const bar = document.querySelector('#bar')
+const barPointer = document.querySelector('#barPointer')
+
 let musicName = '../cryForMe.mp3' 
 
-const player = new MusicPlayer({ src: musicName, timeTotal: maxTime, timeDisplay: currentTime})
+const player = new MusicPlayer({ src: musicName, timeTotalDisplay: maxTime, timeDisplay: currentTime, timeMax: '3:23',barElements: [barContainer, bar, barPointer]})
 
 
 document.body.addEventListener('click', ev => {

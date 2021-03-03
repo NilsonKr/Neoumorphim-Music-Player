@@ -1,28 +1,47 @@
 class MusicPlayer{
   constructor(config){
     this.updateTime = this.updateTime.bind(this)
+    this.updateBar = this.updateBar.bind(this)
 
     this.media = new Audio(config.src)
     this.timeDisplay = config.timeDisplay
-    this.timeTotal = config.timeTotal
+    this.timeTotalDisplay = config.timeTotalDisplay
+    this.barElements = config.barElements
+    this.maxTime = config.timeMax
     this.media.volume = .2
 
-    this.media.addEventListener('timeupdate', this.updateTime) 
+    this.media.currentTime = 180
+
+    this.media.addEventListener('timeupdate', () => {
+        this.updateTime()
+        this.updateBar()
+    }) 
+  }
+  
+  updateBar(){
+    let width  = (this.media.currentTime * 100) / this.media.duration
+
+
+    this.barElements[1].style.width = `${width.toFixed(2)}%`
   }
 
   updateTime(){
-    const currentTime = `${(this.media.currentTime * (1 / 60)).toFixed(2)}`
-
-    this.timeDisplay.innerText = currentTime.replace('.',':')
+    const curmins = Math.floor(this.media.currentTime / 60)
+    const cursecs = Math.floor(this.media.currentTime - curmins * 60)
+    let sec = cursecs < 10 ? '0' + cursecs : cursecs
+    
+    this.timeDisplay.innerText = `${curmins}:${sec}`
+    
+    // const currentTime = `${(this.media.currentTime * (1 / 60)).toFixed(2)}`
   }
+
   togglePlay(){
 
     const imageBtn = document.querySelector('#pausePlay')
 
-    if(this.timeTotal.textContent = ' '){
-      const time = `${(this.media.duration * (1 / 60)).toFixed(2)}`
+    if(this.timeTotalDisplay.textContent = ' '){
       
-      this.timeTotal.innerText = time.replace('.',':')
+      this.timeTotalDisplay.innerText = this.maxTime
     }
 
     if(this.media.paused){
