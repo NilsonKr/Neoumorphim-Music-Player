@@ -40,8 +40,8 @@
 
   <section class="progressBar">
     <div class="minutes">
-      <span class="current">1:23</span>
-      <span class="total">3:00</span>
+      <span class="current" id="currentTime">0:00</span>
+      <span class="total" id="maxTime">0:00</span>
     </div>
     <div class="bar">
       <div class="progress"></div>
@@ -51,11 +51,13 @@
     </div>
   </section>
   <footer class="footer">
-    <span class="delay"></span>
-    <div class="togglePlay">
-      <img src="./images/play.png" alt="">
+    <span class="delay" id="back"></span>
+    <div class="togglePlay" id="toggleBtn">
+      <img src="./images/play.svg" alt="" id="pausePlay">
     </div>
-    <span class="advance"></span>   
+    <span class="advance" id="advanceBtn"></span>   
   </footer>
+
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
